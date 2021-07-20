@@ -1,0 +1,60 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           haskell-codescreen-fibonacci
+version:        1.0.0.0
+description:    Please see the README on GitHub at <https://github.com/Code-Screen/Haskell-CodeScreen-Fibonaccii#readme>
+homepage:       https://github.com/Code-Screen/Haskell-CodeScreen-Fibonacci#readme
+bug-reports:    https://github.com/Code-Screen/Haskell-CodeScreen-Fibonacci/issues
+author:         Dave Cervi
+maintainer:     dave@codescreen.dev
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/Code-Screen/Haskell-CodeScreen-Fibonacci
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_haskell_codescreen_fibonacci
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable haskell-codescreen-fibonacci-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_codescreen_fibonacci
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , haskell-codescreen-fibonacci
+  default-language: Haskell2010
+
+test-suite haskell-codescreen-fibonacci-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      FibonacciHiddenSpec
+      FibonacciSpec
+      Paths_haskell_codescreen_fibonacci
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , haskell-codescreen-fibonacci
+    , hspec ==2.*
+  default-language: Haskell2010
+  build-tool-depends: hspec-discover:hspec-discover == 2.*
